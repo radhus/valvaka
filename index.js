@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 
 const { WebClient } = require('@slack/client');
 const slack = new WebClient(process.env.SLACK_TOKEN);
+const channelNames = process.env.CHANNEL_NAMES;
 
 const checks = [
   {
@@ -32,7 +33,7 @@ checks.forEach((check) => {
     var name = check.name + " " + dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
     slack.files.upload({
       filename: name,
-      channels: "#radhuset",
+      channels: channelNames,
       file: screenshot,
     }).then((res) => {
       console.log(res);
