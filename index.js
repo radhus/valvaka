@@ -15,8 +15,12 @@ const checks = [
     url: "https://data.val.se/val/val2018/valnatt/K/kommun/14/80/index.html",
     selector: "#sida > div:nth-child(4) > table",
   },
+  {
+    name: "Lund",
+    url: "https://data.val.se/val/val2018/valnatt/K/kommun/12/81/index.html",
+    selector: "#sida > div:nth-child(4) > table",
+  },
 ];
-
 
 checks.forEach((check) => {
   (async () => {
@@ -36,7 +40,7 @@ checks.forEach((check) => {
         filename: name,
         channels: channelNames,
         file: screenshot,
-      })
+      });
       await browser.close();
     } catch (e) {
       console.error(e)
