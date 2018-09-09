@@ -20,26 +20,26 @@ const checks = [
 
 checks.forEach((check) => {
   (async () => {
-    const browser = await puppeteer.launch();
+    try {
+      const browser = await puppeteer.launch();
 
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1200, height: 800, deviceScaleFactor: 2 });
+      const page = await browser.newPage();
+      await page.setViewport({ width: 1200, height: 800, deviceScaleFactor: 2 });
 
-    await page.goto(check.url);
-    const overlay = await page.$(check.selector);
-    const screenshot = await overlay.screenshot();
+      await page.goto(check.url);
+      const overlay = await page.$(check.selector);
+      const screenshot = await overlay.screenshot();
 
-    const dt = new Date();
-    const name = check.name + " " + dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
-    slack.files.upload({
-      filename: name,
-      channels: channelNames,
-      file: screenshot,
-    }).then((res) => {
-      console.log(res);
-    }).catch(console.error);
-
-    await browser.close();
-
+      const dt = new Date();
+      const name = check.name + " " + dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
+      await slack.files.upload({
+        filename: name,
+        channels: channelNames,
+        file: screenshot,
+      })
+      await browser.close();
+    } catch (e) {
+      console.err(e)
+    }
   })()
 });
