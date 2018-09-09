@@ -7,13 +7,13 @@ const channelNames = process.env.CHANNEL_NAMES;
 const checks = [
   {
     name: "Göteborg",
-    url: "https://data.val.se/val/val2018/valnatt/K/kommun/14/80/index.html",
-    selector: "#sida > div:nth-child(4) > table",
+    url: "https://valresultat.svt.se/2018/31480.html",
+    selector: "#scroll31480 > section.val_result-section.val_is-Kommunval > div.val_result-bars_and_map > section",
   },
   {
     name: "Lund",
-    url: "https://data.val.se/val/val2018/valnatt/K/kommun/12/81/index.html",
-    selector: "#sida > div:nth-child(4) > table",
+    url: "https://valresultat.svt.se/2018/31281.html",
+    selector: "#scroll31281 > section.val_result-section.val_is-Kommunval > div.val_result-bars_and_map > section",
   },
 ];
 
