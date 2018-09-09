@@ -30,7 +30,7 @@ checks.forEach((check) => {
       const page = await browser.newPage();
       await page.setViewport({ width: 1200, height: 800, deviceScaleFactor: 2 });
 
-      await page.goto(check.url);
+      await page.goto(check.url, {timeout: 300000});
       const overlay = await page.$(check.selector);
       const screenshot = await overlay.screenshot();
 
