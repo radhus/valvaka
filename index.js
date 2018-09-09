@@ -39,7 +39,7 @@ checks.forEach((check) => {
       })
       await browser.close();
     } catch (e) {
-      console.err(e)
+      console.error(e)
     }
   })()
 });
