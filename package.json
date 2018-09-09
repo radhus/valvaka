@@ -1,0 +1,12 @@
+{
+  "name": "valvaka",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "William Johansson <radar@radhuset.org>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@slack/client": "^4.6.0",
+    "puppeteer": "^1.8.0"
+  }
+}
