@@ -76,5 +76,7 @@ typings/
 # Serverless directories
 .serverless
 
+# IDE's
+.idea/
 
 # End of https://www.gitignore.io/api/node

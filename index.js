@@ -19,17 +19,17 @@ const checks = [
 
 checks.forEach((check) => {
   (async () => {
-    var browser = await puppeteer.launch();
+    const browser = await puppeteer.launch();
 
-    var page = await browser.newPage();
+    const page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 800, deviceScaleFactor: 2 });
 
     await page.goto(check.url);
-    var overlay = await page.$(check.selector);
-    var screenshot = await overlay.screenshot();
+    const overlay = await page.$(check.selector);
+    const screenshot = await overlay.screenshot();
 
-    var dt = new Date()
-    var name = check.name + " " + dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
+    const dt = new Date();
+    const name = check.name + " " + dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
     slack.files.upload({
       filename: name,
       channels: "#radhuset",
@@ -41,4 +41,4 @@ checks.forEach((check) => {
     await browser.close();
 
   })()
-})
+});
